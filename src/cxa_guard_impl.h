@@ -238,7 +238,16 @@ struct LibcppCondVar;
 
 #ifndef _LIBCXXABI_HAS_NO_THREADS
 struct LibcppMutex {
+#ifdef _MUTEX_REQUIRES_INITIALIZATION
+  LibcppMutex() {
+    (void)std::__libcpp_mutex_init(&mutex);
+  }
+  ~LibcppMutex() {
+    (void)std::__libcpp_mutex_destroy(&mutex);
+  }
+#else
   LibcppMutex() = default;
+#endif
   LibcppMutex(LibcppMutex const&) = delete;
   LibcppMutex& operator=(LibcppMutex const&) = delete;
 
