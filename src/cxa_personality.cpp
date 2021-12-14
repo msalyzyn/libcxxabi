@@ -1227,6 +1227,9 @@ __cxa_call_unexpected(void* arg)
     {
         t_handler = std::get_terminate();
         u_handler = std::get_unexpected();
+#ifdef FREERTOS
+	ttypeIndex = 0;
+#endif
     }
     try
     {
