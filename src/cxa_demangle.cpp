@@ -11,6 +11,7 @@
 // file does not yet support:
 //   - C++ modules TS
 
+#undef _LIBCPP_NO_EXCEPTIONS
 #define _LIBCPP_NO_EXCEPTIONS
 
 #include "__cxxabi_config.h"

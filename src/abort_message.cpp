@@ -29,7 +29,7 @@ extern "C" void android_set_abort_message(const char* msg);
 #   endif
 #endif
 
-void abort_message(const char* format, ...)
+void abort_message(const char* format __attribute__((__unused__)), ...)
 {
     // write message to stderr
 #if !defined(NDEBUG) || !defined(LIBCXXABI_BAREMETAL)
